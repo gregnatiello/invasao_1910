@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Invasão 1910 - Página Oficial</title>
     <style>
         * {
@@ -18,19 +18,18 @@
         }
 
        /* Cabeçalho com imagem de fundo e overlay */
-    header.header-background {
-    position: relative;
-    background-image: url('Imagens/integrantes.jpg'); /* sua imagem de fundo */
-    background-size: cover;
-    background-position: center 30%; /* FOCO NA PARTE SUPERIOR */
-    height: 550px; /* Altura reduzida */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-bottom: 2px solid #fff;
-    }
-
+        header.header-background {
+            position: relative;
+            background-image: url('Imagens/integrantes.jpg'); /* sua imagem de fundo */
+            background-size: cover;
+            background-position: center 30%; /* FOCO NA PARTE SUPERIOR */
+            height: 550px; /* Altura reduzida */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 2px solid #fff;
+        }
 
         .header-background .overlay {
             position: absolute;
@@ -236,78 +235,57 @@
             color: #999;
         }
 
+        /* Responsividade */
 
-/* RESPONSIVIDADE PARA O HEADER NO CELULAR */
-@media (max-width: 768px) {
-  header.header-background {
-    height: 220px; /* Reduz altura no celular */
-    background-position: center 20%; /* Mostra mais a parte superior */
-  }
+        @media (max-width: 768px) {
+          /* Esconde o header no celular */
+          header.header-background {
+            display: none;
+          }
 
-  .header-background .logo {
-    max-width: 200px; /* Reduz a logo no celular */
-  }
+          /* Ajusta hero para colocar logo em cima no celular */
+          .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-  .hero {
-    position: relative;
-    background-image: url('Imagens/integrantes.jpg'); /* usa sua imagem */
-    background-size: cover;
-    background-position: center;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    color: #fff;
-    z-index: 1;
-}
+            /* Remove fundo da hero para evitar conflito */
+            background-image: none !important;
+            height: auto !important;
+            padding-top: 20px;
+            color: #fff;
+          }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6); /* Escurece a imagem p/ destacar texto */
-    z-index: -1;
-}
+          /* Logo dentro da hero - só aparece no celular */
+          .hero-logo-mobile {
+            display: block !important;
+            max-width: 200px;
+            margin-bottom: 20px;
+          }
 
+          .hero h1 {
+            font-size: 1.8rem;
+          }
 
-  .cta-button {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-}
+          .hero p {
+            font-size: 1rem;
+            max-width: 90%;
+            line-height: 1.4;
+            margin-bottom: 20px;
+          }
 
-@media (max-width: 768px) {
-    .hero {
-        height: 100vh;
-        background-position: top;
-    }
+          .cta-button {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+          }
+        }
 
-    .logo {
-        max-width: 200px;
-    }
-
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-
-    .cta-button {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-    }
-}
-
-
-        
+        @media (min-width: 769px) {
+          /* Esconde logo dentro da hero no desktop */
+          .hero-logo-mobile {
+            display: none !important;
+          }
+        }
     </style>
 </head>
 <body>
@@ -320,6 +298,9 @@
 
     <!-- Seção Hero -->
     <section class="hero">
+        <!-- Logo que aparece só no celular -->
+        <img src="Imagens/Invasao_logo2.png" alt="Logo Invasão 1910" class="hero-logo-mobile" style="display:none;">
+
         <h1>CANAL INVASÃO 1910</h1>
         <p>
             Aqui, não tem roteiro engessado, não tem enrolação.<br>
@@ -341,13 +322,13 @@
         <h2>CONECTE-SE COM O INVASÃO</h2>
         <div class="social-icons">
             <a href="https://www.instagram.com/canalinvasao1910" class="social-icon" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
             </a>
             <a href="https://wa.me/5511990035968" class="social-icon" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+                <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" />
             </a>
             <a href="https://www.youtube.com/@invasao1910" class="social-icon" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
             </a>
         </div>
     </section>
@@ -376,7 +357,7 @@
         <h2>RECEBA AS NOTÍCIAS DO TIMÃO</h2>
         <p>Cadastre-se para receber notícias e novidades diretamente no seu e-mail.</p>
         <form class="newsletter-form">
-            <input type="email" placeholder="Digite seu melhor e-mail" required>
+            <input type="email" placeholder="Digite seu melhor e-mail" required />
             <button type="submit">ASSINAR</button>
         </form>
     </section>
