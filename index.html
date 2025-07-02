@@ -248,19 +248,64 @@
     max-width: 200px; /* Reduz a logo no celular */
   }
 
-  .hero h1 {
-    font-size: 1.6rem;
-  }
+  .hero {
+    position: relative;
+    background-image: url('Imagens/integrantes.jpg'); /* usa sua imagem */
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    color: #fff;
+    z-index: 1;
+}
 
-  .hero p {
-    font-size: 0.95rem;
-  }
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* Escurece a imagem p/ destacar texto */
+    z-index: -1;
+}
+
 
   .cta-button {
     padding: 12px 20px;
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        background-position: top;
+    }
+
+    .logo {
+        max-width: 200px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
 
         
     </style>
