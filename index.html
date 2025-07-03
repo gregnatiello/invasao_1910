@@ -1,305 +1,333 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Invasão 1910 - Página Oficial</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invasão 1910 - Página Oficial</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
 
-        body {
-            background-color: #000;
-            color: #fff;
-        }
+    body {
+        background-color: #000;
+        color: #fff;
+    }
 
-       /* Cabeçalho com imagem de fundo e overlay */
+    /* Cabeçalho com imagem de fundo e overlay (desktop) */
+    header.header-background {
+        position: relative;
+        background-image: url('Imagens/integrantes.jpg'); /* imagem dos integrantes */
+        background-size: cover;
+        background-position: center 30%;
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-bottom: 2px solid #fff;
+    }
+
+    .header-background .overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+    .header-background .logo {
+        position: relative;
+        z-index: 2;
+        max-width: 80%;
+        height: auto;
+    }
+
+    /* HERO desktop */
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://example.com/corinthians-stadium.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        background-color: #fff;
+        color: #000;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .cta-button:hover {
+        background-color: #ddd;
+    }
+
+    /* Seção redes sociais */
+    .social-section {
+        padding: 50px 20px;
+        text-align: center;
+        background-color: #111;
+    }
+
+    .social-section h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .social-icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Vídeo */
+    .video-section {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .video-section h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    .cinema-container {
+        position: relative;
+        padding-bottom: 42.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 3px solid #fff;
+        background: #000;
+    }
+
+    .cinema-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-fallback {
+        text-align: center;
+        margin-top: 15px;
+        color: #ccc;
+    }
+
+    .video-fallback a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    /* Newsletter */
+    .newsletter {
+        padding: 50px 20px;
+        background-color: #111;
+        text-align: center;
+    }
+
+    .newsletter h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .newsletter p {
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .newsletter-form {
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        font-size: 1rem;
+    }
+
+    .newsletter-form button {
+        padding: 15px 30px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Rodapé */
+    footer {
+        background-color: #000;
+        padding: 30px 20px;
+        text-align: center;
+        border-top: 2px solid #fff;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    .copyright {
+        color: #999;
+    }
+
+    /* ========== RESPONSIVIDADE ========== */
+
+    @media (max-width: 768px) {
+
+        /* Esconde o header desktop */
         header.header-background {
-            position: relative;
-            background-image: url('Imagens/integrantes.jpg'); /* sua imagem de fundo */
-            background-size: cover;
-            background-position: center 30%; /* FOCO NA PARTE SUPERIOR */
-            height: 550px; /* Altura reduzida */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            border-bottom: 2px solid #fff;
+            display: none;
         }
 
-        .header-background .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .header-background .logo {
-            position: relative;
-            z-index: 2;
-            max-width: 80%;
-            height: auto;
-        }
-
+        /* Ajusta a hero para celular sem imagem de fundo */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://example.com/corinthians-stadium.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+            background-image: none !important;
+            height: auto;
+            padding: 20px 20px 40px;
+            color: #fff;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
+        }
+
+        /* Container para as imagens no topo da hero no celular */
+        .hero-mobile-images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .hero-mobile-images img.integrantes-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        .hero-mobile-images img.logo-img {
+            max-width: 180px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 3px #fff);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1rem;
+            max-width: 90%;
+            line-height: 1.4;
             margin-bottom: 30px;
         }
 
         .cta-button {
-            background-color: #fff;
-            color: #000;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .cta-button:hover {
-            background-color: #ddd;
-        }
-
-        .social-section {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #111;
-        }
-
-        .social-section h2 {
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .social-icon {
-            width: 60px;
-            height: 60px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .social-icon img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .video-section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .video-section h2 {
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .cinema-container {
-            position: relative;
-            padding-bottom: 42.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 1200px;
-            margin: 0 auto;
-            border: 3px solid #fff;
-            background: #000;
-        }
-
-        .cinema-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .video-fallback {
-            text-align: center;
-            margin-top: 15px;
-            color: #ccc;
-        }
-
-        .video-fallback a {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .newsletter {
-            padding: 50px 20px;
-            background-color: #111;
-            text-align: center;
-        }
-
-        .newsletter h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .newsletter p {
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .newsletter-form button {
-            padding: 15px 30px;
-            background-color: #fff;
-            color: #000;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        footer {
-            background-color: #000;
-            padding: 30px 20px;
-            text-align: center;
-            border-top: 2px solid #fff;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            color: #999;
-        }
-
-        /* Responsividade */
-
-        @media (max-width: 768px) {
-          /* Esconde o header no celular */
-          header.header-background {
-            display: none;
-          }
-
-          /* Ajusta hero para colocar logo em cima no celular */
-          .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            /* Remove fundo da hero para evitar conflito */
-            background-image: none !important;
-            height: auto !important;
-            padding-top: 20px;
-            color: #fff;
-          }
-
-          /* Logo dentro da hero - só aparece no celular */
-          .hero-logo-mobile {
-            display: block !important;
-            max-width: 200px;
-            margin-bottom: 20px;
-          }
-
-          .hero h1 {
-            font-size: 1.8rem;
-          }
-
-          .hero p {
-            font-size: 1rem;
-            max-width: 90%;
-            line-height: 1.4;
-            margin-bottom: 20px;
-          }
-
-          .cta-button {
             padding: 12px 20px;
             font-size: 0.9rem;
-          }
         }
+    }
 
-        @media (min-width: 769px) {
-          /* Esconde logo dentro da hero no desktop */
-          .hero-logo-mobile {
+    @media (min-width: 769px) {
+        /* No desktop, esconder as imagens móveis */
+        .hero-mobile-images {
             display: none !important;
-          }
         }
-    </style>
+    }
+
+</style>
 </head>
 <body>
 
-    <!-- Cabeçalho com imagem dos integrantes no fundo -->
+    <!-- Cabeçalho desktop com imagem dos integrantes no fundo -->
     <header class="header-background">
         <div class="overlay"></div>
-        <img src="Imagens/Invasao_logo2.png" alt="Logo Invasão 1910" class="logo">
+        <img src="Imagens/Invasao_logo2.png" alt="Logo Invasão 1910" class="logo" />
     </header>
 
     <!-- Seção Hero -->
     <section class="hero">
-        <!-- Logo que aparece só no celular -->
-        <img src="Imagens/Invasao_logo2.png" alt="Logo Invasão 1910" class="hero-logo-mobile" style="display:none;">
+
+        <!-- Imagens que aparecem somente no celular (integrantes + logo) -->
+        <div class="hero-mobile-images">
+            <img src="Imagens/integrantes.jpg" alt="Integrantes Invasão 1910" class="integrantes-img" />
+            <img src="Imagens/Invasao_logo2.png" alt="Logo Invasão 1910" class="logo-img" />
+        </div>
 
         <h1>CANAL INVASÃO 1910</h1>
         <p>
@@ -373,5 +401,6 @@
         </div>
         <p class="copyright">© 2025 Invasão 1910. Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>
